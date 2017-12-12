@@ -21,7 +21,8 @@ import java.util.Locale;
  * Created by iuliana.cosmina on 8/14/16.
  */
 @Configuration
-// TODO 45. Add the proper annotation to enable Spring @MVC
+//Add the proper annotation to enable Spring @MVC
+@EnableWebMvc
 @ComponentScan(basePackages = {"com.ps.web"})
 public class WebConfig extends WebMvcConfigurerAdapter {
     //Declare our static resources. I added cache to the java config but it?s not required.
