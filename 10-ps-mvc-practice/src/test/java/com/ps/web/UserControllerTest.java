@@ -19,14 +19,14 @@ public class UserControllerTest {
     private UserController userController;
 
     @Before
-    public void setUp(){
+    public void setUp() {
         userController = new UserController();
         userController.setUserService(new StubUserService());
     }
 
 
     @Test
-    public void testFindAllHandler(){
+    public void testFindAllHandler() {
         ExtendedModelMap model = new ExtendedModelMap();
         String viewName = userController.list(model);
         List<User> users = (List<User>) model.get("users");
@@ -38,6 +38,15 @@ public class UserControllerTest {
 
     @Test
     public void testFindOneHandler() throws NotFoundException {
-        // TODO 47: Complete this test for the show() method of UserController
+        //Complete this test for the show() method of UserController
+        final ExtendedModelMap model = new ExtendedModelMap();
+        final Long id = 1L;
+        String viewName = userController.show(id, model);
+        final User user = (User) model.get("user");
+        assertNotNull(user);
+        assertEquals(Long.valueOf(1), user.getId());
+        assertEquals("users/show", viewName);
+
+
     }
 }
